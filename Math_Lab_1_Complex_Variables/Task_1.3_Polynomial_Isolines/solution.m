@@ -169,3 +169,11 @@ set(gca, 'Color', background, 'GridColor', cream, ...
     'GridAlpha', 1, 'XColor', 'black', 'YColor', 'black');
 
 hold off;
+
+% –––––
+
+%% Запуск файла с Octave (раскомментировать)
+% if exist('OCTAVE_VERSION', 'builtin')
+%     disp('Графики построены.');
+%     pause;
+% end
