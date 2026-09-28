@@ -409,7 +409,7 @@ y_2(x)=\mathrm{Im}f(x)=e^{2x}\sin(17x).
 y=\pm e^{2x}.
 ```
 
-![chart](output_1.png)
+![chart](figure_1.png)
 
 ##### Комментарий к графику комплексной экспоненты
 
