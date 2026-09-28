@@ -79,7 +79,7 @@ legend( ...
     'Re(f(x)) = exp(2x)cos(17x)', ...
     'Im(f(x)) = exp(2x)sin(17x)', ...
     'Огибающие y = +/- exp(2x)', ...
-    'Location', 'northwest');
+    'Location', 'northwest', 'TextColor', 'black');
 
 title('Вещественная и мнимая части комплексной экспоненты');
 
@@ -120,14 +120,10 @@ g_imag_zoom = imag(g_zoom);
 
 % –––––
 
-%% Строим графики комплексного косинуса
+%% Строим общий график комплексного косинуса
+% Создаём отдельное окно для графика на отрезке [-1, 1].
 figure(2);
 set(gcf, 'Color', background);
-
-%% Строим общий график комплексного косинуса
-% Разделяем окно на одну строку и два столбца.
-% В левой части выбираем первый график.
-subplot(1, 2, 1);
 set(gca, 'Color', background);
 
 % Строим вещественную часть на отрезке [-1, 1] бордовым цветом.
@@ -149,15 +145,16 @@ legend( ...
     [g_real_plot, g_imag_plot], ...
     'Re(g(x)) = cos(2x)cosh(17x)', ...
     'Im(g(x)) = -sin(2x)sinh(17x)', ...
-    'Location', 'south');
+    'Location', 'south', 'TextColor', 'black');
 
 title('Общее поведение на [-1, 1]');
 
 hold off;
 
 %% Строим увеличенный график комплексного косинуса
-% В правой части окна выбираем второй график.
-subplot(1, 2, 2);
+% Создаём отдельное окно для графика около нуля.
+figure(3);
+set(gcf, 'Color', background);
 set(gca, 'Color', background);
 
 % Строим вещественную часть около нуля бордовым цветом.
@@ -180,9 +177,9 @@ legend( ...
     [g_real_zoom_plot, g_imag_zoom_plot], ...
     'Re(g(x)) = cos(2x)cosh(17x)', ...
     'Im(g(x)) = -sin(2x)sinh(17x)', ...
-    'Location', 'south');
+    'Location', 'south', 'TextColor', 'black');
 
-title('Имеем около нуля на [-0.25, 0.25]');
+title('Поведение около нуля на [-0.25, 0.25]');
 
 hold off;
 
