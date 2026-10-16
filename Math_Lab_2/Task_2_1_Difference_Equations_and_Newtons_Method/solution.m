@@ -1,7 +1,3 @@
-clear;
-clc;
-close all;
-
 %% Постоянные
 m = 2;
 k = 17;

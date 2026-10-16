@@ -17,7 +17,6 @@ initial_y = [ ...
      1.15 * pi,  1.50 * pi,  1.85 * pi];
 
 initial_x = initial_y / k;
-line_styles = {'-', '--', ':'};
 
 %% x' = sin^2(kx)
 rhs1 = @(t, x) sin(k * x).^2;
@@ -42,15 +41,15 @@ for j = 1:length(initial_x)
     x = [flipud(x_left); x_right(2:end)];
 
     if mod(j - 1, 3) == 0
-        color = maroon;
+        plots(end + 1) = plot(t, x, '-', ...
+            'Color', maroon, 'LineWidth', 1.5);
+    elseif mod(j - 1, 3) == 1
+        plots(end + 1) = plot(t, x, '--', ...
+            'Color', red, 'LineWidth', 1.5);
     else
-        color = red;
+        plots(end + 1) = plot(t, x, ':', ...
+            'Color', red, 'LineWidth', 1.5);
     end
-
-    plots(end + 1) = plot(t, x, ...
-        'Color', color, ...
-        'LineStyle', line_styles{ceil(j / 3)}, ...
-        'LineWidth', 1.5);
 
     labels{j} = sprintf('kx(0)/\\pi = %.2f', k * x0 / pi);
 end
@@ -91,15 +90,15 @@ for j = 1:length(initial_x)
     x = [flipud(x_left); x_right(2:end)];
 
     if mod(j - 1, 3) == 0
-        color = maroon;
+        plots(end + 1) = plot(t, x, '-', ...
+            'Color', maroon, 'LineWidth', 1.5);
+    elseif mod(j - 1, 3) == 1
+        plots(end + 1) = plot(t, x, '--', ...
+            'Color', red, 'LineWidth', 1.5);
     else
-        color = red;
+        plots(end + 1) = plot(t, x, ':', ...
+            'Color', red, 'LineWidth', 1.5);
     end
-
-    plots(end + 1) = plot(t, x, ...
-        'Color', color, ...
-        'LineStyle', line_styles{ceil(j / 3)}, ...
-        'LineWidth', 1.5);
 
     labels{j} = sprintf('kx(0)/\\pi = %.2f', k * x0 / pi);
 end
@@ -167,7 +166,7 @@ xlabel('t');
 ylabel('x(t)');
 title('x'' = sqrt(|sin(kx)|)');
 labels{end} = 'x = j\pi/k';
-legend([plots, stationary], labels, 'Location', 'best');
+legend([plots, stationary], labels, 'Location', 'southoutside');
 hold off;
 
 %% x' = sign(sin(kx)) sqrt(|sin(kx)|)
@@ -190,15 +189,15 @@ for j = 1:length(initial_x)
     x = [flipud(x_left); x_right(2:end)];
 
     if mod(j - 1, 3) == 0
-        color = maroon;
+        plots(end + 1) = plot(t, x, '-', ...
+            'Color', maroon, 'LineWidth', 1.5);
+    elseif mod(j - 1, 3) == 1
+        plots(end + 1) = plot(t, x, '--', ...
+            'Color', red, 'LineWidth', 1.5);
     else
-        color = red;
+        plots(end + 1) = plot(t, x, ':', ...
+            'Color', red, 'LineWidth', 1.5);
     end
-
-    plots(end + 1) = plot(t, x, ...
-        'Color', color, ...
-        'LineStyle', line_styles{ceil(j / 3)}, ...
-        'LineWidth', 1.5);
 
     labels{j} = sprintf('kx(0)/\\pi = %.2f', k * x0 / pi);
 end
