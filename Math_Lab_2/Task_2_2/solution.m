@@ -18,13 +18,14 @@ initial_y = [ ...
 
 initial_x = initial_y / k;
 
+% –––––
+
 %% x' = sin^2(kx)
 rhs1 = @(t, x) sin(k * x).^2;
 
 figure(1);
 set(gcf, 'Color', background);
-
-subplot(1, 2, 1);
+set(gcf, 'Position', [100, 100, 1000, 700]);
 set(gca, 'Color', background);
 hold on;
 
@@ -67,13 +68,15 @@ xlabel('t');
 ylabel('x(t)');
 title('x'' = sin^2(kx)');
 labels{end} = 'x = j\pi/k';
-legend([plots, stationary], labels, 'Location', 'southoutside');
+legend([plots, stationary], labels, 'Location', 'southoutside', 'NumColumns', 3);
 hold off;
 
 %% x' = |sin(kx)|
 rhs2 = @(t, x) abs(sin(k * x));
 
-subplot(1, 2, 2);
+figure(2);
+set(gcf, 'Color', background);
+set(gcf, 'Position', [100, 100, 1000, 700]);
 set(gca, 'Color', background);
 hold on;
 
@@ -116,16 +119,15 @@ xlabel('t');
 ylabel('x(t)');
 title('x'' = |sin(kx)|');
 labels{end} = 'x = j\pi/k';
-legend([plots, stationary], labels, 'Location', 'southoutside');
+legend([plots, stationary], labels, 'Location', 'southoutside', 'NumColumns', 3);
 hold off;
 
 %% x' = sqrt(|sin(kx)|)
 rhs3 = @(t, x) sqrt(abs(sin(k * x)));
 
-figure(2);
+figure(3);
 set(gcf, 'Color', background);
-
-subplot(1, 2, 1);
+set(gcf, 'Position', [100, 100, 1000, 700]);
 set(gca, 'Color', background);
 hold on;
 
@@ -166,13 +168,15 @@ xlabel('t');
 ylabel('x(t)');
 title('x'' = sqrt(|sin(kx)|)');
 labels{end} = 'x = j\pi/k';
-legend([plots, stationary], labels, 'Location', 'southoutside');
+legend([plots, stationary], labels, 'Location', 'southoutside', 'NumColumns', 2);
 hold off;
 
 %% x' = sign(sin(kx)) sqrt(|sin(kx)|)
 rhs4 = @(t, x) sign(sin(k * x)) .* sqrt(abs(sin(k * x)));
 
-subplot(1, 2, 2);
+figure(4);
+set(gcf, 'Color', background);
+set(gcf, 'Position', [100, 100, 1000, 700]);
 set(gca, 'Color', background);
 hold on;
 
@@ -215,11 +219,13 @@ xlabel('t');
 ylabel('x(t)');
 title('x'' = sign(sin(kx)) sqrt(|sin(kx)|)');
 labels{end} = 'x = j\pi/k';
-legend([plots, stationary], labels, 'Location', 'southoutside');
+legend([plots, stationary], labels, 'Location', 'southoutside', 'NumColumns', 3);
 hold off;
 
+% –––––
+
 %% Запуск файла с Octave (раскомментировать)
-if exist('OCTAVE_VERSION', 'builtin')
-    disp('Графики построены.');
-    pause;
-end
+%if exist('OCTAVE_VERSION', 'builtin')
+%    disp('Графики построены.');
+%    pause;
+%end
