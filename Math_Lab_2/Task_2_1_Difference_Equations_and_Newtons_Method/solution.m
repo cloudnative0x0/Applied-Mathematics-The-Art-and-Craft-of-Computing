@@ -233,7 +233,7 @@ for month = [20, 40, 60, 80]
 end
 
 %% Запуск файла с Octave (раскомментировать)
- if exist('OCTAVE_VERSION', 'builtin')
-     disp('Графики построены.');
-     pause;
- end
+%if exist('OCTAVE_VERSION', 'builtin')
+%    disp('Графики построены.');
+%    pause;
+%end
